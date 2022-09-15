@@ -1,5 +1,6 @@
-class Admin::AdminsController < AdminController 
+class Admin::AdminsController < AdminController
   before_action :set_admin, only: [:edit, :update, :destroy]
+
   def index
     @admins = Admin.order(id: :desc)
   end
@@ -10,17 +11,16 @@ class Admin::AdminsController < AdminController
 
   def create
     @admin = Admin.new(form_params)
+
     if @admin.save
       redirect_to admin_admins_path
     else
-
       render :new
     end
   end
 
-  def edit 
+  def edit
   end
-
 
   def update
     params = form_params.to_h
@@ -40,11 +40,12 @@ class Admin::AdminsController < AdminController
 
   private
 
+  def form_params
+    params.require(:admin).permit(:name, :email, :password, :password_confirmation)
+  end
+
   def set_admin
     @admin = Admin.find(params[:id])
   end
 
-  def form_params
-    params.require(:admin).permit(:name, :email, :password, :password_confirmation)
-  end
 end

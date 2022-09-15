@@ -4,5 +4,4 @@ class Admins::SessionsController < Devise::SessionsController
     new_admin_session_path
   end
 
-
 end
