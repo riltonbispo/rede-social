@@ -10,4 +10,10 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show]
   end
 
+  root to: "user/timeline#index"
+
+  namespace :user do
+    
+  end
+
 end
