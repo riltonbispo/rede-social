@@ -4,4 +4,4 @@ class Admin::UsersController < AdminController
     @users = User.order(id: :desc)
   end
 
-end
+end 
