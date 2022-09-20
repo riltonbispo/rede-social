@@ -3,6 +3,7 @@
 
   <div class="col-lg-6">
     <div class="card">
+      <%= render partial:"user_card_header", locals: { user: current_user }%>
       <div class="card-body">
         Email:<p class="card-text text-muted"><%= current_user.email %></p>
         Telefone:<p class="card-text text-muted"><%= current_user.phone %></p>
